@@ -36,7 +36,7 @@ const allServices = [
 
 export default function Footer() {
   return (
-    <footer className="bg-accent text-white">
+    <footer className="bg-[#070E0A] text-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Clutch Badge */}
         <div className="flex justify-end py-6 border-b border-white/10">

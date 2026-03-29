@@ -39,21 +39,31 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon,
       children,
       disabled,
+      asChild = false,
       ...props
     },
     ref
   ) => {
+    const baseClasses = cn(
+      "inline-flex items-center gap-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
+      variantClasses[variant],
+      sizeClasses[size],
+      className
+    );
+
+    if (asChild) {
+      const child = React.Children.only(children) as React.ReactElement;
+      return React.cloneElement(child, {
+        className: cn(baseClasses, child.props.className),
+      } as any);
+    }
+
     return (
       <motion.button
         ref={ref}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className={cn(
-          "inline-flex items-center gap-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
-          variantClasses[variant],
-          sizeClasses[size],
-          className
-        )}
+        className={baseClasses}
         disabled={disabled || loading}
         {...(props as React.ComponentPropsWithoutRef<typeof motion.button>)}
       >
@@ -61,7 +71,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
         )}
         {!loading && icon && icon}
-        <span>{children}</span>
+        <span className="inline-flex items-center gap-2 whitespace-nowrap">{children}</span>
       </motion.button>
     );
   }
