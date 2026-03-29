@@ -17,11 +17,6 @@ const footerLinks = {
     { label: "Contact us", href: "#contact" },
     { label: "Careers", href: "#" },
   ],
-  Resources: [
-    { label: "Blog", href: "#" },
-    { label: "Press", href: "#" },
-    { label: "Events", href: "#" },
-  ],
 };
 
 const socialLinks = [
