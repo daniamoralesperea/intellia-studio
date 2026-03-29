@@ -22,7 +22,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-ink mb-4">Service Not Found</h1>
-          <p className="text-ink-muted">The service you're looking for doesn't exist.</p>
+          <p className="text-ink-muted">The service you&apos;re looking for doesn&apos;t exist.</p>
         </div>
       </div>
     );

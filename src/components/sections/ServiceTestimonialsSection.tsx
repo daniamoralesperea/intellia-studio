@@ -1,9 +1,9 @@
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import Button from "@/components/ui/Button";
-import SectionLabel from "@/components/ui/SectionLabel";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedSection from "@/components/ui/AnimatedSection";
+import Button from "@/components/ui/Button";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 interface Testimonial {
   quote: string;
@@ -16,9 +16,11 @@ interface ServiceTestimonialsSectionProps {
   testimonials: Testimonial[];
 }
 
-export default function ServiceTestimonialsSection({ testimonials }: ServiceTestimonialsSectionProps) {
+export default function ServiceTestimonialsSection({
+  testimonials,
+}: ServiceTestimonialsSectionProps) {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16">
           <SectionLabel>Testimonials</SectionLabel>
@@ -33,7 +35,7 @@ export default function ServiceTestimonialsSection({ testimonials }: ServiceTest
               <div className="p-8 bg-background rounded-2xl border border-border hover:shadow-card transition-shadow duration-300 flex flex-col h-full">
                 {/* Quote */}
                 <p className="text-ink mb-6 leading-relaxed flex-1">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
 
                 {/* Author */}
